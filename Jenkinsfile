@@ -14,6 +14,16 @@ pipeline {
             }
         }
 
+        stage('Inject Env') {
+            steps {
+                script {
+                    withCredentials([file(credentialsId: 'tbot-env-file', variable: 'ENV_FILE')]) {
+                        sh "source $ENV_FILE >> .env"
+                    }
+                }
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 script {
