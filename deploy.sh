@@ -30,4 +30,4 @@ fi
 docker pull repo/image:master
 
 # run new docker container
-docker run -d --restart always --name $1 --env-file ./.env hervlokossou/allmight_bot:master
+docker run -d --restart always --name $1 --env-file ./.env gakenoumessan/gak_bot:master

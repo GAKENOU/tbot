@@ -10,8 +10,15 @@ install:
 	.venv/bin/pip install -r requirements.txt
 
 build:
+	@echo "Check if given container exists..."
+	@if [ $(docker ps -a -q -f name=gak_bot) ]; then \
+		echo "Stopping and removing existing container..."; \
+		docker stop gak_bot; \
+		docker rm gak_bot; \
+	fi
+
 	@echo "Building the project..."
-	docker build -t gakenoumessan/gak_bot .
+	docker build --no-cache -t gakenoumessan/gak_bot .
 
 make deploy:
 	@echo "Deploying the project..."
