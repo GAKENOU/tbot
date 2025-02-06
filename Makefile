@@ -15,8 +15,8 @@ build:
 
 make deploy:
 	@echo "Deploying the project..."
-	chmod +x deploy.sh
-	./deploy.sh
+	chmod +x checker.sh
+	./checker.sh
 	docker run -d -p 8005:80 gakenoumessan/gak_bot
 
 serve:
